@@ -2,11 +2,11 @@
 
 DexHollow13 是一个面向 Android 13 / ART 的 dex 方法体抽取工具。它接收一个
 apk，抽取其中可保护方法的 `code_item`，然后生成一个经过 zipalign 但没有
-签名的新 apk.
+签名的新 apk
 
 项目的核心规则是：真实方法体不会写回 Hollow dex。ART verifier 始终校验
 类型正确的默认返回桩；真实 `code_item` 在 `ClassLinker::LoadMethod` 命中时才从
-加密 Payload 中单独解密，并只会被交给当前进程中的 `ArtMethod`。
+加密 Payload 中单独解密，并只会被交给当前进程中的 `ArtMethod`
 
 ## 功能
 
