@@ -51,6 +51,8 @@ apk，抽取其中可保护方法的 `code_item`，然后生成一个经过 zipa
 
 ShadowHook 和 Monocypher 的固定版本已放在 `vendor/`，不需要另外下载
 
+构建的操作系统优先选择 Debian 系的 Linux 或者其他 Linux（RedHat，Fedora等），或者也可以使用 macOS，目前构建脚本并未加入 PowerShell 的支持，所以无法使用 Windows 构建，后续可能加入对 PowerShell 的支持以便在 Windows 环境中构建
+
 先设置本机 Android SDK 路径：
 
 ```bash
