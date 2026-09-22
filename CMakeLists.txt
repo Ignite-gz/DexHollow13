@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
 
-# Host 加壳器使用 C++17。当前代码会尽量采用容易理解的 C++11 写法；
-# C++17 主要用于 std::filesystem，避免自行拼接和规范化跨平台路径。
 project(DexHollow13 VERSION 1.0.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
