@@ -328,8 +328,7 @@ EncryptedPayloadView ReadEncryptedPayloadView(const ByteView& bytes,
         method_indices[method.method_idx] = true;
         bytes.CheckRange(method.ciphertext_offset, method.code_item_size,
                          "Payload method ciphertext");
-        previous_data_end =
-            static_cast<std::size_t>(method.ciphertext_offset) + method.code_item_size;
+        previous_data_end = static_cast<std::size_t>(method.ciphertext_offset) + method.code_item_size;
         method.stub_kind = static_cast<dex::StubKind>(stub_kind);
         method.encrypted_code_item = bytes.DataAt(method.ciphertext_offset, method.code_item_size,
                                                   "Payload method ciphertext");
