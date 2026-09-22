@@ -2,11 +2,11 @@
 
 DexHollow13 是一个面向 Android 13 / ART 的 dex 方法体抽取工具。它接收一个
 apk，抽取其中可保护方法的 `code_item`，然后生成一个经过 zipalign 但没有
-签名的新 apk
+签名的新 apk。
 
 项目的核心规则是：真实方法体不会写回 Hollow dex。ART verifier 始终校验
 类型正确的默认返回桩；真实 `code_item` 在 `ClassLinker::LoadMethod` 命中时才从
-加密 Payload 中单独解密，并只会被交给当前进程中的 `ArtMethod`
+加密 Payload 中单独解密，并只会被交给当前进程中的 `ArtMethod`。
 
 ## 功能
 
@@ -49,9 +49,9 @@ apk，抽取其中可保护方法的 `code_item`，然后生成一个经过 zipa
 - Ninja
 - libzip、zlib 和 OpenSSL 开发包
 
-ShadowHook 和 Monocypher 的固定版本已放在 `vendor/`，不需要另外下载
+ShadowHook 和 Monocypher 的固定版本已放在 `vendor/`，不需要另外下载。
 
-构建的操作系统优先选择 Debian 系的 Linux 或者其他 Linux（RedHat，Fedora等），或者也可以使用 macOS，目前构建脚本并未加入 PowerShell 的支持，所以无法使用 Windows 构建，后续可能加入对 PowerShell 的支持以便在 Windows 环境中构建
+构建的操作系统优先选择 Debian 系的 Linux 或者其他 Linux（RedHat，Fedora等），或者也可以使用 macOS，目前构建脚本并未加入 PowerShell 的支持，所以无法使用 Windows 构建，后续可能加入对 PowerShell 的支持以便在 Windows 环境中构建。
 
 先设置本机 Android SDK 路径：
 
@@ -120,7 +120,7 @@ lib/<abi>/libdexhollow13_shadowhook_nothing.so
 
 dex 和 Payload 使用同一目录、同一 `.dat` 后缀，文件名每次打包都会改变。
 固定的 `0.dat` 是 Loader 找到其他随机资源前必须知道的入口。这种命名只是让
-解压结果不那么显眼，不是安全边界
+解压结果不那么显眼，不是安全边界。
 
 ## 运行过程概览
 
@@ -238,4 +238,4 @@ docs/              项目文档
 
 <img width="375" height="786" alt="图片" src="https://github.com/user-attachments/assets/ba05f55d-7c32-415f-9fb5-3e37bad4b690" />
 
-因为 app 貌似是有签名校验的，所以会弹出不安全的提示，但这不重要，重要的是，可以看出来，app 本身还是可以正常运行的，只不过，相比原来变卡了一些
+因为 app 貌似是有签名校验的，所以会弹出不安全的提示，但这不重要，重要的是，可以看出来，app 本身还是可以正常运行的，只不过，相比原来变卡了一些。
