@@ -45,7 +45,7 @@ apk，抽取其中可保护方法的 `code_item`，然后生成一个经过 zipa
 - Android SDK 33
 - Android Build Tools 33.0.2
 - Android NDK 25.2.9519653
-- CMake 3.22 或更高版本
+- CMake 4.0.2 或更高版本
 - Ninja
 - libzip、zlib 和 OpenSSL 开发包
 
