@@ -212,7 +212,8 @@ void Initialize(JNIEnv* env, jobjectArray hollow_buffers, jobjectArray payload_b
 
     try {
         InstallArtHooksOrThrow(bindings);
-    } catch (...) {
+    }
+    catch (...) {
         // Hook 安装失败时还没有受保护方法能经 Hook 运行，可以安全撤销本次初始化状态。
         g_hollow_buffer_array = nullptr;
         g_payload_buffer_array = nullptr;
@@ -261,7 +262,8 @@ Java_com_dexhollow13_loader_NativeBridge_nativeDecryptResource(JNIEnv* env, jcla
                                 reinterpret_cast<const jbyte*>(plaintext.data()));
         dexhollow13::crypto::SecureWipe(plaintext.data(), plaintext.size());
         return output;
-    } catch (const std::exception& error) {
+    }
+    catch (const std::exception& error) {
         if (!env->ExceptionCheck()) {
             dexhollow13::runtime::ThrowIllegalState(env, error.what());
         }
@@ -284,7 +286,8 @@ Java_com_dexhollow13_loader_NativeBridge_nativeDecryptResourceFile(JNIEnv* env, 
             dexhollow13::runtime::ReadJavaString(env, output_path, "明文临时路径"),
             dexhollow13::runtime::ParseResourceKind(static_cast<std::uint32_t>(raw_kind)),
             static_cast<std::uint32_t>(ordinal));
-    } catch (const std::exception& error) {
+    }
+    catch (const std::exception& error) {
         if (!env->ExceptionCheck()) {
             dexhollow13::runtime::ThrowIllegalState(env, error.what());
         }
@@ -301,7 +304,8 @@ extern "C" JNIEXPORT void JNICALL Java_com_dexhollow13_loader_NativeBridge_nativ
 
     try {
         dexhollow13::runtime::Initialize(env, hollow_buffers, payload_buffers);
-    } catch (const std::exception& error) {
+    }
+    catch (const std::exception& error) {
         if (!env->ExceptionCheck()) {
             dexhollow13::runtime::ThrowIllegalState(env, error.what());
         }
