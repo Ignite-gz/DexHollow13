@@ -146,7 +146,8 @@ void DecryptResourceFile(const std::string& input_path, const std::string& outpu
             fsync(output_file.get()) != 0) {
             throw Error("提交 Hollow DEX 临时明文失败，errno=" + std::to_string(errno));
         }
-    } catch (...) {
+    }
+    catch (...) {
         crypto::SecureWipe(output_mapping.data(), resource.plaintext_size);
         static_cast<void>(msync(output_mapping.data(), resource.plaintext_size, MS_SYNC));
         static_cast<void>(ftruncate(output_file.get(), 0));
