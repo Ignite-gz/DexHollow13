@@ -239,3 +239,5 @@ docs/              项目文档
 <img width="375" height="786" alt="图片" src="https://github.com/user-attachments/assets/ba05f55d-7c32-415f-9fb5-3e37bad4b690" />
 
 因为 app 貌似是有签名校验的，所以会弹出不安全的提示，但这不重要，重要的是，可以看出来，app 本身还是可以正常运行的，只不过，相比原来变卡了一些。
+
+项目本身肯定还是会存在不少bug的，可以 QQ 联系我 3501851346 或者在 issues 中提出，我会尽量快点修复 bug 以改进项目
